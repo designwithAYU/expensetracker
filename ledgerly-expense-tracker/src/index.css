@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-display: 'Fraunces', serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --color-ink: #0E1116;
+  --color-ink-soft: #161B22;
+  --color-ink-card: #1B222B;
+  --color-paper: #F6F4EF;
+  --color-paper-soft: #EDEAE1;
+  --color-paper-card: #FFFFFF;
+
+  --color-vault: #0F5C56;
+  --color-vault-light: #17877D;
+  --color-vault-dark: #0A403C;
+  --color-gold: #C9A227;
+  --color-gold-light: #E0BE4D;
+  --color-coral: #E15554;
+  --color-coral-light: #F2827F;
+  --color-slate: #6B7280;
+
+  --animate-dial-sweep: dial-sweep 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  --animate-fade-up: fade-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  --animate-count: count 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes dial-sweep {
+  from { stroke-dashoffset: var(--dial-full); }
+  to { stroke-dashoffset: var(--dial-offset); }
+}
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes count {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+.font-display { font-family: var(--font-display); }
+.font-mono { font-family: var(--font-mono); }
+
+.ledger-divider {
+  background-image: linear-gradient(to right, currentColor 1px, transparent 1px);
+  background-size: 6px 1px;
+  background-repeat: repeat-x;
+  height: 1px;
+}
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(128,128,128,0.3); border-radius: 4px; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
