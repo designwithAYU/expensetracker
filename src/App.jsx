@@ -26,7 +26,7 @@ export default function App() {
   }, [user, refreshNotifications])
 
   return (
-    <BrowserRouter basename="/expensetracker">
+   <BrowserRouter basename="/Ledgerly-AI-based-Expense-Tracker">
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/onboarding" element={<Onboarding />} />
